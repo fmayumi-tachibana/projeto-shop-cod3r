@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:shop/providers/cart.dart';
 import 'package:shop/providers/orders.dart';
 import 'package:shop/widgets/cart_item_widget.dart';
+import 'package:shop/widgets/order_button.dart';
 
 class CartScreen extends StatelessWidget {
   @override
@@ -37,15 +38,7 @@ class CartScreen extends StatelessWidget {
                     backgroundColor: Theme.of(context).primaryColor,
                   ),
                   Spacer(),
-                  FlatButton(
-                    onPressed: () {
-                      Provider.of<Orders>(context, listen: false)
-                          .addOrder(cart);
-                      cart.clear();
-                    },
-                    child: Text('COMPRAR'),
-                    textColor: Theme.of(context).primaryColor,
-                  ),
+                  OrderButton(cart),
                 ],
               ),
             ),
